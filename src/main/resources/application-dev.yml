@@ -1,0 +1,8 @@
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/ycdb_php?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        #jinrong@ycdb@zhijia
+        password: 123456
