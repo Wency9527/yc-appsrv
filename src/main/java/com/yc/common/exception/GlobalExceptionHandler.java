@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.yc.common.dto.BaseResultDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.web.HttpMediaTypeNotAcceptableException;
@@ -72,35 +73,40 @@ public class GlobalExceptionHandler {
     public String requestMissingServletRequest(MissingServletRequestParameterException ex) {
         return exceptionFormat(8, ex);
     }
+    //400错误
+    @ExceptionHandler({TypeMismatchException.class})
+    public String requestTypeMismatch(TypeMismatchException ex) {
+        return exceptionFormat(9, ex);
+    }
 
     //405错误
     @ExceptionHandler({HttpRequestMethodNotSupportedException.class})
     public String request405(HttpRequestMethodNotSupportedException ex) {
-        return exceptionFormat(9, ex);
+        return exceptionFormat(10, ex);
     }
 
     //406错误
     @ExceptionHandler({HttpMediaTypeNotAcceptableException.class})
     public String request406(HttpMediaTypeNotAcceptableException ex) {
-        return exceptionFormat(10, ex);
+        return exceptionFormat(11, ex);
     }
 
     //500错误
     @ExceptionHandler({ConversionNotSupportedException.class, HttpMessageNotWritableException.class})
     public String server500(RuntimeException ex) {
-        return exceptionFormat(11, ex);
+        return exceptionFormat(12, ex);
     }
 
     //栈溢出
     @ExceptionHandler({StackOverflowError.class})
     public String requestStackOverflow(StackOverflowError ex) {
-        return exceptionFormat(12, ex);
+        return exceptionFormat(13, ex);
     }
 
     //其他错误
     @ExceptionHandler({Exception.class})
     public String exception(Exception ex) {
-        return exceptionFormat(13, ex);
+        return exceptionFormat(14, ex);
     }
 
     //自定义异常捕获
