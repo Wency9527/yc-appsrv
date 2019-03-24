@@ -19,7 +19,6 @@ import java.io.IOException;
 
 /**
  * 全局异常处理拦截器类
- * @author lyj
  */
 @CrossOrigin
 @ControllerAdvice

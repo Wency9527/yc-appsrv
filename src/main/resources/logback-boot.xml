@@ -27,8 +27,8 @@
             <!-- 每产生一个日志文件，该日志文件的保存期限为30天 -->
             <maxHistory>30</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy  class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <!-- maxFileSize:这是活动文件的大小，默认值是10MB,本篇设置为1KB，只是为了演示 -->
-                <maxFileSize>1KB</maxFileSize>
+                <!-- maxFileSize:这是活动文件的大小，默认值是10MB,本篇设置为1024KB，只是为了演示 -->
+                <maxFileSize>1024KB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
         </rollingPolicy>
         <encoder>
