@@ -2,8 +2,7 @@ package com.yc.common.exception;
 
 import com.alibaba.fastjson.JSON;
 import com.yc.common.dto.BaseResultDTO;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.ConversionNotSupportedException;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
@@ -20,14 +19,12 @@ import java.io.IOException;
 /**
  * 全局异常处理拦截器类
  */
+@Slf4j
 @CrossOrigin
 @ControllerAdvice
 @ResponseBody
 public class GlobalExceptionHandler {
     private static final String LOG_EXCEPTION_FORMAT = "Capture Exception By GlobalExceptionHandler: Code: %s Detail: %s";
-
-    private static Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
-
     //运行时异常
     @ExceptionHandler(RuntimeException.class)
     public String runtimeExceptionHandler(RuntimeException ex) {
