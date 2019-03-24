@@ -109,7 +109,7 @@ public class GlobalExceptionHandler {
     //自定义异常捕获
     @ExceptionHandler({CommonException.class})
     public String myException(CommonException ex) {
-        return exceptionFormat(500, ex);
+        return exceptionFormat(ex.getStatus(), ex);
     }
 
     private <T extends Throwable> String exceptionFormat(Integer code, T ex) {
